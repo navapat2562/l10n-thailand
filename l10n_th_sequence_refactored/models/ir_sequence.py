@@ -57,6 +57,7 @@ class IrSequence(models.Model):
         `_interpolation_dict()` instead of an inner function.
         """
         self.ensure_one()
+        text_error = "Invalid prefix or suffix for sequence "
         d = self._interpolation_dict(date=date, date_range=date_range)
 
         try:
@@ -64,6 +65,7 @@ class IrSequence(models.Model):
             interpolated_suffix = (self.suffix % d) if self.suffix else ""
         except KeyError:
             raise UserError(
-                _("Invalid prefix or suffix for sequence " "'%s'") % (self.get("name"))
+
+                _(text_error + "'%s'") % (self.get("name"))
             )
         return interpolated_prefix, interpolated_suffix
