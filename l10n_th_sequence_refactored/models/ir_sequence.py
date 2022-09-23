@@ -64,8 +64,5 @@ class IrSequence(models.Model):
             interpolated_prefix = (self.prefix % d) if self.prefix else ""
             interpolated_suffix = (self.suffix % d) if self.suffix else ""
         except KeyError:
-            raise UserError(
-
-                _(text_error + "'%s'") % (self.get("name"))
-            )
+            raise UserError(_(text_error + "'%s'") % (self.get("name")))
         return interpolated_prefix, interpolated_suffix
