@@ -28,19 +28,19 @@ class TestIrSequenceBeStandard(SingleTransactionCase):
         seq1 = self.env["ir.sequence"].with_context(ir_sequence_date=date1)
         value = seq1.next_by_code("test_be")
         self.assertEqual(
-            value, f"test-{year+543-1}/{y_be-1}-0001-{year+543-1}/{y_be-1}"
+            value, f"test-{year + 543 - 1}/{y_be - 1}-0001-{year + 543 - 1}/{y_be - 1}"
         )
         value = seq1.next_by_code("test_be")
         self.assertEqual(
-            value, f"test-{year+543-1}/{y_be-1}-0002-{year+543-1}/{y_be-1}"
+            value, f"test-{year + 543 - 1}/{y_be - 1}-0002-{year + 543 - 1}/{y_be - 1}"
         )
 
         date2 = datetime.date(year=year, month=3, day=14)
         seq2 = self.env["ir.sequence"].with_context(ir_sequence_date=date2)
         value = seq2.next_by_code("test_be")
-        self.assertEqual(value, f"test-{year+543}/{y_be}-0003-{year+543}/{y_be}")
+        self.assertEqual(value, f"test-{year + 543}/{y_be}-0003-{year + 543}/{y_be}")
         value = seq2.next_by_code("test_be")
-        self.assertEqual(value, f"test-{year+543}/{y_be}-0004-{year+543}/{y_be}")
+        self.assertEqual(value, f"test-{year + 543}/{y_be}-0004-{year + 543}/{y_be}")
 
     def test_ir_sequence_be_3_unlink(self):
         seq = self.env["ir.sequence"].search([("code", "=", "test_be")])
@@ -96,19 +96,19 @@ class TestIrSequenceBeDateRange(SingleTransactionCase):
         seq1 = self.env["ir.sequence"].with_context(ir_sequence_date=date1)
         value = seq1.next_by_code("test_be_date_range")
         self.assertEqual(
-            value, f"test-{year+543-1}/{y_be-1}-0314-{year+543-1}/{y_be-1}"
+            value, f"test-{year + 543 - 1}/{y_be - 1}-0314-{year + 543 - 1}/{y_be - 1}"
         )
         value = seq1.next_by_code("test_be_date_range")
         self.assertEqual(
-            value, f"test-{year+543-1}/{y_be-1}-0315-{year+543-1}/{y_be-1}"
+            value, f"test-{year + 543 - 1}/{y_be - 1}-0315-{year + 543 - 1}/{y_be - 1}"
         )
 
         date2 = datetime.date(year=year, month=3, day=14)
         seq2 = self.env["ir.sequence"].with_context(ir_sequence_date=date2)
         value = seq2.next_by_code("test_be_date_range")
-        self.assertEqual(value, f"test-{year+543}/{y_be}-0042-{year+543}/{y_be}")
+        self.assertEqual(value, f"test-{year + 543}/{y_be}-0042-{year + 543}/{y_be}")
         value = seq2.next_by_code("test_be_date_range")
-        self.assertEqual(value, f"test-{year+543}/{y_be}-0043-{year+543}/{y_be}")
+        self.assertEqual(value, f"test-{year + 543}/{y_be}-0043-{year + 543}/{y_be}")
 
     def test_ir_sequence_be_date_range_3_unlink(self):
         seq = self.env["ir.sequence"].search([("code", "=", "test_be_date_range")])
@@ -163,16 +163,16 @@ class TestIrSequenceBeRangeEnd(SingleTransactionCase):
         date1 = datetime.date(year=year - 1, month=11, day=14)
         seq1 = self.env["ir.sequence"].with_context(ir_sequence_date=date1)
         value = seq1.next_by_code("test_be_range_end")
-        self.assertEqual(value, f"test-{year+543}/{y_be}-0314-{year+543}/{y_be}")
+        self.assertEqual(value, f"test-{year + 543}/{y_be}-0314-{year + 543}/{y_be}")
         value = seq1.next_by_code("test_be_range_end")
-        self.assertEqual(value, f"test-{year+543}/{y_be}-0315-{year+543}/{y_be}")
+        self.assertEqual(value, f"test-{year + 543}/{y_be}-0315-{year + 543}/{y_be}")
 
         date2 = datetime.date(year=year, month=3, day=14)
         seq2 = self.env["ir.sequence"].with_context(ir_sequence_date=date2)
         value = seq2.next_by_code("test_be_range_end")
-        self.assertEqual(value, f"test-{year+543}/{y_be}-0042-{year+543}/{y_be}")
+        self.assertEqual(value, f"test-{year + 543}/{y_be}-0042-{year + 543}/{y_be}")
         value = seq2.next_by_code("test_be_range_end")
-        self.assertEqual(value, f"test-{year+543}/{y_be}-0043-{year+543}/{y_be}")
+        self.assertEqual(value, f"test-{year + 543}/{y_be}-0043-{year + 543}/{y_be}")
 
     def test_ir_sequence_be_range_end_3_unlink(self):
         seq = self.env["ir.sequence"].search([("code", "=", "test_be_range_end")])
