@@ -117,4 +117,4 @@ enable=anomalous-backslash-in-string,
 [REPORTS]
 msg-template={path}:{line}: [{msg_id}({symbol}), {obj}] {msg}
 output-format=colorized
-reports=no
+reports=yes
